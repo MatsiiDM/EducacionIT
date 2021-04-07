@@ -1,0 +1,81 @@
+package clase03;
+import java.util.Scanner;
+
+public class JuevesClase3 {
+    
+    
+    public static void main(String[] args) {
+        
+/*
+        int num = 1;
+        while(num<=10){
+            System.out.println(num);
+            num++;// num = num + 1;
+        }
+        //num = 11
+        //pantalla = 1 2 3
+       
+        
+        //imprimir los numeros del 500 al 400
+        //de 5 en 5
+        int num2 = 500;
+        while (num2 >= 400){
+            
+            if(num2 != 465 && num2 !=420){
+               System.out.println(num2); 
+            }
+            num2 -= 5;
+        }
+*/
+        
+/*
+        do{
+            instrucciones
+            ajuste
+        }while(condiciones);
+*/
+    	
+/*
+        int num3 = 2;
+        do {
+            System.out.println(num3);
+            num3 += 2;
+        } while (num3 <= 20);
+*/
+    	
+/*		
+        for(inicio;condicion;ajuste){
+            intrucciones
+        }
+ */
+/*
+        for (int i = 5; i < 11; i++){
+            System.out.println(i);
+        }
+*/      
+/*
+        solicitar al usuario desde el teclado dos numeros,
+        realizar un for con esos datos,
+        mostra las suma de todos esos numeros
+*/
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Ingresa un numero");
+        int num1 = teclado.nextInt();
+        System.out.println("Ingresa otro numero mayor");
+        int num2 = teclado.nextInt();
+        int menor, mayor, suma = 0;
+        if (num1 < num2){
+            menor = num1;
+            mayor = num2;
+        }else{
+            mayor = num1;
+            menor = num2;
+        }
+        for (int i = menor; i < mayor; i++){
+            System.out.println(i);
+            suma += i; 
+        }
+        System.out.println("La suma es: " + suma);
+        
+    }
+}

@@ -1,0 +1,44 @@
+package clase03;
+
+
+public class JuevesClase3 {
+    
+    
+    public static void main(String[] args) {
+        
+        /*
+        int num = 1;
+        while(num<=10){
+            System.out.println(num);
+            num++;// num = num + 1;
+        }
+        //num = 11
+        //pantalla = 1 2 3
+       
+        
+        //imprimir los numeros del 500 al 400
+        //de 5 en 5
+        int num2 = 500;
+        while (num2 >= 400){
+            
+            if(num2 != 465 && num2 !=420){
+               System.out.println(num2); 
+            }
+            num2 -= 5;
+        }
+         */
+        
+        /*
+        do{
+            instrucciones
+            ajuste
+        }while(condiciones);
+        */
+        
+        int num3 = 2;
+        do {
+            System.out.println(num3);
+            num3 += 2;
+        } while (num3 <= 20);
+    }
+}

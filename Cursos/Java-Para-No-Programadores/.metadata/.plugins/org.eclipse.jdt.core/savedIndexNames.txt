@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\EducacionIT\Cursos\Java-Para-No-Programadores\.metadata\.plugins\org.eclipse.jdt.core
+3077860367.index
+2409992996.index
