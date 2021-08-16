@@ -1,0 +1,37 @@
+body {
+    background-color: whitesmoke;
+}
+
+.seccionForm {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    width: 278px;
+    border-style: solid;
+    border: 1px, #000000;
+    position: absolute;
+	height: 300px;
+	width: 230px;
+	left: 50%;
+	top: 50%;
+	margin-top: -200px;
+	margin-left: -150px;
+}
+
+.camposForm p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+input[type=submit] {
+    margin-top: 25px;
+    border: 2px solid #333;
+    border-radius: 3px;
+    width: 80px;
+    height: 35px;
+
+}
+
+/* input[type=text], input[type=password] {
+    margin-bottom: 20px;
+} */
