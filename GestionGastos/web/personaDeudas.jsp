@@ -4,6 +4,10 @@
     Author     : MDMartin
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="Logica.Persona"%>
+<%@page import="Logica.Persona"%>
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -71,24 +75,34 @@
                             <th>Apellido</th>
                     <tbody>
                         <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td><a href="altaDeudas.jsp"><input type="button" class="btn btn-secondary rounded submit p-2 px-2 btn-success" value="Agregar deuda"></a></th></td>
-                            <td><a href="altaPersona.jsp"><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Ver deudas"></a></td>
+                            <%
+                                Controladora control = new Controladora();
+                                List<Persona> listaPersonas = control.getListaPersonas();
+                                for (Persona per : listaPersonas) {
 
+                            %>
+                            <% long dni = per.getDni();%>
+
+                            <% String nombre = per.getNombre();%>
+                            <td><%=nombre%></td>
+
+                            <% String apellido = per.getApellido();%>
+                            <td><%=apellido%></td>
+
+                            <td>
+                                <form name="agregarDeudas" action="SvAgregarDeudas" method="POST">
+                                    <input type="hidden" name=id value="<%=dni%>" >
+                                    <button type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-success" value="Agregar deuda"> Agregar deudas </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form name="verDeudas" action="SvVerDeudas" method="POST">
+                                    <input type="hidden" name=id value="<%=dni%>"  >
+                                    <button type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Ver deudas"> Ver deudas </button>
+                                </form>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Smith</td>
-                            <td>Thomas</td>
-                            <td><a href="altaDeudas.jsp"><input type="button" class="btn btn-secondary rounded submit p-2 px-2 btn-success" value="Agregar deuda"></a></th></td>
-                            <td><a href="altaPersona.jsp"><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Ver deudas"></a></td>
-                        </tr>
-                        <tr>
-                            <td>Merry</td>
-                            <td>Jim</td>
-                            <td><a href="altaDeudas.jsp"><input type="button" class="btn btn-secondary rounded submit p-2 px-2 btn-success" value="Agregar deuda"></a></th></td>
-                            <td><a href="altaPersona.jsp"><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Ver deudas"></a></td>
-                        </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>

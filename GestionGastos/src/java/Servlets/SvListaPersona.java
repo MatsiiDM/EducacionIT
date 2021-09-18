@@ -5,14 +5,8 @@
  */
 package Servlets;
 
-import Logica.Controladora;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MDMartin
  */
-@WebServlet(name = "SvRegistrarPersona", urlPatterns = {"/SvRegistrarPersona"})
-public class SvRegistrarPersona extends HttpServlet {
+@WebServlet(name = "SvListaPersona", urlPatterns = {"/SvListaPersona"})
+public class SvListaPersona extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,7 +32,18 @@ public class SvRegistrarPersona extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SvListaPersona</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SvListaPersona at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -68,32 +73,6 @@ public class SvRegistrarPersona extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
-        Controladora control = new Controladora();
-        
-        //Traigo los datos del JSP
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        System.out.println(request.getParameter("fechaNacimiento"));
-        Date fechaNacimiento = control.ParseFecha(request.getParameter("fechaNacimiento"));
-        System.out.println(fechaNacimiento);
-        String cargo = request.getParameter("cargo");
-        long dni = Integer.parseInt(request.getParameter("dni"));
-        String direccion = request.getParameter("direccion");
-        
-        
-        //Traigo la sesion y asinar los atributos para abrir cualquier JSP
-        
-        request.getSession().setAttribute("nombre", nombre);
-        request.getSession().setAttribute("apellido", apellido);
-        request.getSession().setAttribute("direccion", direccion);
-        request.getSession().setAttribute("cargo", cargo);
-        
-        //conecto con la logica
-        
-        control.crearPersona(nombre, apellido, cargo, fechaNacimiento, dni, direccion);
-        response.sendRedirect("listaPersonas.jsp");
-       
     }
 
     /**

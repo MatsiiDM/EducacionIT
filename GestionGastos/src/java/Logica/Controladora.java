@@ -5,13 +5,14 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Controladora {
         
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
     
     public Date ParseFecha(String fecha) {
-        DateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
+        DateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaDate = null;
         try {
             fechaDate = formato.parse(fecha);
@@ -43,5 +44,11 @@ public class Controladora {
         //Llamo a la controladora de persistencia para dar de alta esta Consulta en la base de datos
         controlPersis.crearPersona(per);
     }
+    
+    public List <Persona> getListaPersonas(){
+        return (this.controlPersis.getPersonas());
+    }
+    
+    
     
 }

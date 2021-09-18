@@ -64,24 +64,24 @@
                     <div class="form-group row justify-content-around">
                         <div class="col-2">
                             <p>Nombre:</p>
-                            <input type="text" name="nombre" class="form-control rounded-left">
+                            <input type="text" name="nombre" class="form-control rounded-left" required="">
                             <p>Cargo:</p>
-                            <input type="text" name="cargo" class="form-control rounded-left">
+                            <input type="text" name="cargo" class="form-control rounded-left" required="">
                             <p>Fecha de Nacimiento:</p>
-                            <input type="date" name="fechaNacimiento" class="form-control rounded-left">
+                            <input type="date" name="fechaNacimiento" class="form-control rounded-left" required="">
                         </div>
                         <div class="col-2">
                             <p>Apellido:</p>
-                            <input type="text" name="apellido" class="form-control rounded-left">
+                            <input type="text" name="apellido" class="form-control rounded-left" required="">
                             <p>D.N.I.:</p>
-                            <input type="text" name="dni" class="form-control rounded-left">
+                            <input type="text" name="dni" class="form-control rounded-left" required="" maxlength="8">
                             <p>Dirección:</p>
-                            <input type="text" name="direccion" class="form-control rounded-left">
+                            <input type="text" name="direccion" class="form-control rounded-left" required="">
                         </div>
                     </div>
                     <div class="form-group-buttons">
                         <a href="listadoEmpleados.jsp"><input type="button" class="btn btn-secondary rounded submit p-3 px-4 w-20 border col-2" value="Cancelar"></a>
-                        <input type="submit" class="btn btn-primary rounded submit p-3 px-4 w-20 border col-2" value="Guardar">
+                        <a href="listadoEmpleados.jsp"><input  type="submit" class="btn btn-primary rounded submit p-3 px-4 w-20 border col-2" value="Guardar"></a>
                     </div>
                 </form>
             </div>

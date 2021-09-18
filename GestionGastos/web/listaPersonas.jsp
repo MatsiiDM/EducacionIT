@@ -4,6 +4,9 @@
     Author     : MDMartin
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="Logica.Persona"%>
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -70,32 +73,43 @@
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>Cargo</th>
-                            <th colspan="2">Acciones</th>
                             <th> <a href="altaPersona.jsp"><input type="button" class="btn btn-secondary rounded submit p-2 px-2 btn-success" value="Agregar"></a></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                            <td><a href="altaPersona.jsp"><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Modificar"></a></td>
-                            <td><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-danger" value="Eliminar"></td>
+                            <%
+                                Controladora control = new Controladora();
+                                List<Persona> listaPersonas = control.getListaPersonas();
+                                for (Persona per : listaPersonas){  
+                            
+                            %>
+                            <% long dni = per.getDni();%>
+                            
+                            <% String nombre = per.getNombre();%>
+                            <td><%=nombre %></td>
+                            
+                            <% String apellido = per.getApellido();%>
+                            <td><%=apellido %></td>
+                            
+                            <% String cargo = per.getCargo();%>
+                            <td><%=cargo %></td>
+                            
+                    
+                            <td
+                                <form name="modificarPersona" action="SvModificar" method="POST">
+                                    <input type="hidden" name=id value= "<%=dni%>"  >
+                                    <button type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Modificar"> Modificar </button>
+                                </form>
+                            </td>
+                            <td
+                                <form name="borrarPersona" action="SvEliminar" method="POST">
+                                    <input type="hidden" name=id value= "<%=dni%>"  >
+                                    <button type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-danger" value="Eliminar"> Eliminar </button>
+                                </form>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Smith</td>
-                            <td>Thomas</td>
-                            <td>smith@example.com</td>
-                            <td><a href="altaPersona.jsp"><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Modificar"></a></td>
-                            <td><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-danger" value="Eliminar"></td>
-                        </tr>
-                        <tr>
-                            <td>Merry</td>
-                            <td>Jim</td>
-                            <td>merry@example.com</td>
-                            <td><a href="altaPersona.jsp"><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-warning" value="Modificar"></a></td>
-                            <td><input type="submit" class="btn btn-secondary rounded submit p-2 px-2 btn-danger" value="Eliminar"></td>
-                        </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
